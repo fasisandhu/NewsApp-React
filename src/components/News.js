@@ -28,7 +28,7 @@ const News = (props) => {
           {articles.map((article) => {
             return (
               <>
-                <div class="col-4 ">
+                <div class="col-sm-3 col-md-6 col-lg-4 ">
                   <NewsCard article={article} key={article.url} />
                 </div>
               </>
