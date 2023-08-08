@@ -5,7 +5,13 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
-export const MyNavbar = () => {
+export const MyNavbar = (props) => {
+  const newfunc = () => {
+    const i=document.getElementById("f2");
+    const value = i.value;
+    props.setSvalue(value);
+  };
+
   return (
     <>
       <Navbar expand="lg" className="bg-dark navbar-dark py-3">
@@ -19,11 +25,11 @@ export const MyNavbar = () => {
               navbarScroll
             >
               <Link to="/"><Nav.Link href="#action1">General</Nav.Link></Link>
-              <Link to="/business"><Nav.Link href="#action2">Buisness</Nav.Link></Link>
-              <Link to="/technology"><Nav.Link href="#action2">Technology</Nav.Link></Link>
-              <Link to="/sports"> <Nav.Link href="#action2">Sports</Nav.Link></Link>
-              <Link to="/science"><Nav.Link href="#action2">Science</Nav.Link></Link>
-              <Link to="/entertainment"><Nav.Link href="#action2">Entertainment</Nav.Link></Link>
+              <Link to="/business"><Nav.Link href="#action1">Buisness</Nav.Link></Link>
+              <Link to="/technology"><Nav.Link href="#action1">Technology</Nav.Link></Link>
+              <Link to="/sports"> <Nav.Link href="#action1">Sports</Nav.Link></Link>
+              <Link to="/science"><Nav.Link href="#action1">Science</Nav.Link></Link>
+              <Link to="/entertainment"><Nav.Link href="#action1">Entertainment</Nav.Link></Link>
             </Nav>
             <Form className="d-flex">
               <Form.Control
@@ -33,7 +39,7 @@ export const MyNavbar = () => {
                 aria-label="Search"
                 id="f2"
               />
-              <Button variant="outline-success">Search</Button>
+              <Link to="/search"><Button variant="outline-success" onClick={newfunc}>Search</Button></Link>
             </Form>
           </Navbar.Collapse>
         </Container>        

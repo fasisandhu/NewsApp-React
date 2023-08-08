@@ -14,7 +14,8 @@ const News = (props) => {
       dispatch(getNewsFromApi(data));
     }
     fetchNews();
-  }, [props.category]);
+    // eslint-disable-next-line
+  }, [props.category,props.search]);
 
   const articles = useSelector((state) => state.news.articles);
 
@@ -23,7 +24,7 @@ const News = (props) => {
       <h1 class="display-3 text-center bg-dark text-white mt-1 mb-0">
         Your News
       </h1>
-      <div className="container-fluid">
+      <div className="container-fluid bg-dark">
         <div className="row bg-dark text-white">
           {articles.map((article) => {
             return (

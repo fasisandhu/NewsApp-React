@@ -6,6 +6,7 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
+import { useState } from "react";
 
 
 
@@ -20,10 +21,11 @@ function App() {
   //   fetchNews()
   // },[])
  
+  const [svalue, setSvalue] = useState("")
   return (
     <>
     <Router>
-      <MyNavbar />
+      <MyNavbar svalue={svalue} setSvalue={setSvalue}/>
       <Routes>
        <Route path="/" element={<News category="general" search="" />} /> 
        <Route path="/business" element={<News category="business" search=""/>} /> 
@@ -31,6 +33,7 @@ function App() {
        <Route path="/sports" element={<News category="sports" search="" />} /> 
        <Route path="/science" element={<News category="science" search="" />} /> 
        <Route path="/entertainment" element={<News category="entertainment" search=""/>} /> 
+       <Route path="/search" element={<News category="general" search={svalue} />} /> 
 
 
       </Routes>
